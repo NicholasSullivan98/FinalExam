@@ -6,11 +6,11 @@ import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import sheridan.sullnich.exam.network.CollegeApiService
 
-interface CollegeAppContainer{
+interface AppContainer {
     val collegeRepository: CollegeRepository
 }
 
-class defaultCollegeAppContainer : CollegeAppContainer {
+class DefaultAppContainer : AppContainer {
     private val baseUrl = "https://my-course-exams.web.app/"
 
     private val retrofit: Retrofit = Retrofit.Builder()
