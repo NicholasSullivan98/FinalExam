@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Students (
-    val fullTime: String,
-    val partTime: String
+    val fullTime: Int,
+    val partTime: Int
 )

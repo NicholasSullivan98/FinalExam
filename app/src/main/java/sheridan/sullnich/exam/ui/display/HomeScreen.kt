@@ -49,9 +49,6 @@ fun HomeScreen(
     }
 }
 
-/**
- * The home screen displaying the loading message.
- */
 @Composable
 fun LoadingScreen(modifier: Modifier = Modifier) {
     Image(
@@ -61,9 +58,6 @@ fun LoadingScreen(modifier: Modifier = Modifier) {
     )
 }
 
-/**
- * The home screen displaying error message with re-attempt button.
- */
 @Composable
 fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
     Column(
@@ -107,7 +101,7 @@ fun MarsPhotoCard(data: StudentData, modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(8.dp)
         ) {
             AsyncImage(
-                model = ImageRequest.Builder(context = LocalContext.current).data("https://my-course-exams.web.app/images/e20082.jpg")
+                model = ImageRequest.Builder(context = LocalContext.current).data("https://my-course-exams.web.app/images/"+data.image)
                     .crossfade(true).build(),
                 error = painterResource(R.drawable.ic_broken_image),
                 placeholder = painterResource(R.drawable.loading_img),
@@ -115,16 +109,15 @@ fun MarsPhotoCard(data: StudentData, modifier: Modifier = Modifier) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .width(150.dp)
-                    .height(200.dp)
+                    .height(250.dp)
             )
             Column(modifier = Modifier.padding(16.dp)) {
-                //Text(text = "Employee: ")
-                Text(text = "First Name: " + data.name)
-                Text(text = "Last Name: " + data.type)
-                Text(text = "Position: " + data.established)
-                Text(text = "Email: " + data.students.fullTime)
-                Text(text = "Phone: " + data.students.partTime)
-                Text(text = "Phone: " + data.location)
+                Text(text = "College Name: " + data.name)
+                Text(text = "School Type: " + data.type)
+                Text(text = "Established: " + data.established)
+                Text(text = "Full Time Students: " + data.students.fullTime)
+                Text(text = "Part Time Students: " + data.students.partTime)
+                Text(text = "Location: " + data.location)
             }
         }
     }
@@ -150,8 +143,8 @@ fun ErrorScreenPreview() {
 @Composable
 fun PhotosGridScreenPreview() {
     ExamTheme {
-        val mockStudents = Students("40000", "32000")
-        val mockData = StudentData("1", "Sheridan College", type = "Public", established = "1967", students = mockStudents, image = " ", location = "Ontario, Canada")
+        val mockStudents = Students(40000, 32000)
+        val mockData = StudentData("Sheridan College", type = "Public", established = 1967, students = mockStudents, image = " ", location = "Ontario, Canada")
         PhotosGridScreen(mockData)
     }
 }
