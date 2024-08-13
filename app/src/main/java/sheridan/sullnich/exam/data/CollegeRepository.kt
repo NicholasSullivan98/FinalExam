@@ -1,5 +1,8 @@
 package sheridan.sullnich.exam.data
 
+import sheridan.sullnich.exam.model.StudentData
+import sheridan.sullnich.exam.network.CollegeApiService
+
 interface CollegeRepository{
     suspend fun getStudentData(): StudentData
 }

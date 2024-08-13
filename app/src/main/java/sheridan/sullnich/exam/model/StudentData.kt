@@ -1,7 +1,9 @@
 package sheridan.sullnich.exam.model
 
+import kotlinx.serialization.Serializable
+
 @Serializable
-data class StudentData {
+data class StudentData (
 
     val id: String,
     val name: String,
@@ -11,6 +13,4 @@ data class StudentData {
     val image: String,
     val location: String,
 
-
-
-}
+)

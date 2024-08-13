@@ -1,5 +1,11 @@
 package sheridan.sullnich.exam.data
 
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
+import retrofit2.Retrofit
+import sheridan.sullnich.exam.network.CollegeApiService
+
 interface CollegeAppContainer{
     val collegeRepository: CollegeRepository
 }
@@ -16,7 +22,7 @@ class defaultCollegeAppContainer : CollegeAppContainer {
         retrofit.create(CollegeApiService::class.java)
     }
 
-    override val collegeRepository: CollegeReposiotry by lazy {
+    override val collegeRepository: CollegeRepository by lazy {
         NetworkCollegeRepository(retrofitService)
     }
 }
