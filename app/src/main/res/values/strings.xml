@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">College Details</string>
+    <string name="app_name">Final Exam</string>
     <string name="loading">Loading\n</string>
     <string name="loading_failed">Loading Failed</string>
     <string name="retry">Retry</string>
     <string name="college_photo">College Photo</string>
+    <string name="topbar_name">College Details</string>
 </resources>

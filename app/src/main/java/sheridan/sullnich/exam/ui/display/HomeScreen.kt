@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -111,8 +112,14 @@ fun MarsPhotoCard(data: StudentData, modifier: Modifier = Modifier) {
                     .width(150.dp)
                     .height(250.dp)
             )
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(text = "College Name: " + data.name)
+            Column(
+                modifier = Modifier
+                    .padding(16.dp),
+            ) {
+                Text(text = data.name,
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = Color.Blue
+                )
                 Text(text = "School Type: " + data.type)
                 Text(text = "Established: " + data.established)
                 Text(text = "Full Time Students: " + data.students.fullTime)

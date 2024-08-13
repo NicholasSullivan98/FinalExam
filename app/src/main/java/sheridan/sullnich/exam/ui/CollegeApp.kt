@@ -47,7 +47,7 @@ fun MarsTopAppBar(scrollBehavior: TopAppBarScrollBehavior, modifier: Modifier = 
         scrollBehavior = scrollBehavior,
         title = {
             Text(
-                text = stringResource(R.string.app_name),
+                text = stringResource(R.string.topbar_name),
                 style = MaterialTheme.typography.headlineSmall,
             )
         },
