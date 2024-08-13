@@ -43,7 +43,7 @@ fun HomeScreen(
 ) {
     when (collegeUiState) {
         is CollegeUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
-        is CollegeUiState.Success -> PhotosGridScreen(
+        is CollegeUiState.Success -> CollegeDetailsScreen(
             collegeUiState.data, modifier = modifier.fillMaxWidth()
         )
         is CollegeUiState.Error -> ErrorScreen(retryAction, modifier = modifier.fillMaxSize())
@@ -77,11 +77,11 @@ fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun PhotosGridScreen(
+fun CollegeDetailsScreen(
     data: StudentData,
     modifier: Modifier = Modifier
 ) {
-    MarsPhotoCard(
+    CollegeDetailsCard(
         data,
         modifier = modifier
             .padding(4.dp)
@@ -91,7 +91,7 @@ fun PhotosGridScreen(
 }
 
 @Composable
-fun MarsPhotoCard(data: StudentData, modifier: Modifier = Modifier) {
+fun CollegeDetailsCard(data: StudentData, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier,
         shape = MaterialTheme.shapes.medium,
@@ -148,10 +148,10 @@ fun ErrorScreenPreview() {
 
 @Preview(showBackground = true)
 @Composable
-fun PhotosGridScreenPreview() {
+fun CollegeDetailsScreenPreview() {
     ExamTheme {
         val mockStudents = Students(40000, 32000)
         val mockData = StudentData("Sheridan College", type = "Public", established = 1967, students = mockStudents, image = " ", location = "Ontario, Canada")
-        PhotosGridScreen(mockData)
+        CollegeDetailsScreen(mockData)
     }
 }
